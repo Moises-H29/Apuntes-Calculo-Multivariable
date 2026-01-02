@@ -1,0 +1,98 @@
+\documentclass[a4paper,12pt]{report}
+
+% ------------------ PAQUETES ------------------
+\usepackage{graphicx}
+\usepackage{lettrine}
+\usepackage{fancyhdr}
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
+\usepackage[spanish]{babel}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pagecolor}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{siunitx}
+
+% ------------------ CONFIGURACIÓN ------------------
+\sisetup{round-mode=places,round-precision=6}
+\setlength{\parindent}{0pt}
+\setlength{\headheight}{16pt}
+
+\pagestyle{fancy}
+\fancyfoot[L]{FES Acatlán}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\hyperlink{toc}{IR AL ÍNDICE}}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    filecolor=magenta,
+    citecolor=red
+}
+
+% ------------------ DOCUMENTO ------------------
+\begin{document}
+
+% ---------- PORTADA ----------
+\newgeometry{top=4cm, bottom=4cm, left=4cm, right=4cm}
+\begin{titlepage}
+\pagecolor{MidnightBlue}
+\color{white}
+\centering
+
+{\Huge \textbf{Papu prooouwo}} \\[2.5cm]
+{\Large Hernandez Pacheco Moises} \\[7cm]
+
+\color{SkyBlue}{\Large Matemáticas Aplicadas \& Computación} \\[1cm]
+\color{white}\textbf{\large Universidad Nacional Autónoma de México} \\[0.5cm]
+\textbf{\large FES Acatlán} \\[1cm]
+
+\vfill
+\begin{tikzpicture}[xscale=3]
+\draw[white, thick] (-2,0) -- (2,0);
+\draw[white, thick] (-2,-0.5) -- (2,-0.5);
+\end{tikzpicture}
+\vfill
+
+{\large \today}
+\end{titlepage}
+\restoregeometry
+\pagecolor{white}
+\color{black}
+
+% ---------- ÍNDICE ----------
+\hypertarget{toc}{}
+\tableofcontents
+\newpage
+
+% ---------- CONTENIDO ----------
+\part{Título de la Parte}
+
+\chapter{Título del Capítulo}
+
+\section{Título de la Sección}
+
+\subsection{Título de la Subsección}
+
+
+
+
+% ---------- ECUACIÓN BASE ----------
+\[
+f(x) =
+\]
+
+% ---------- BIBLIOGRAFÍA ----------
+\begin{thebibliography}{9}
+\bibitem{ref1}
+Autor. \emph{Título del libro}. Editorial, año.
+\end{thebibliography}
+
+\end{document}
