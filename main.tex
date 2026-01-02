@@ -1,98 +1,151 @@
 \documentclass[a4paper,12pt]{report}
 
-% ------------------ PAQUETES ------------------
+% ================== PAQUETES ==================
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
+
 \usepackage{graphicx}
 \usepackage{lettrine}
-\usepackage{fancyhdr}
-\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
-\usepackage[spanish]{babel}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{pagecolor}
-\usepackage{tikz}
-\usepackage{hyperref}
 \usepackage{ragged2e}
 \usepackage{microtype}
-\usepackage{amsmath}
+\usepackage{amsmath, amssymb}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{siunitx}
 
-% ------------------ CONFIGURACIÓN ------------------
-\sisetup{round-mode=places,round-precision=6}
-\setlength{\parindent}{0pt}
-\setlength{\headheight}{16pt}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pagecolor}
 
-\pagestyle{fancy}
-\fancyfoot[L]{FES Acatlán}
-\fancyfoot[C]{\thepage}
-\fancyfoot[R]{\hyperlink{toc}{IR AL ÍNDICE}}
-\renewcommand{\footrulewidth}{0.4pt}
-\renewcommand{\headrulewidth}{0.4pt}
+\usepackage{tikz}
+\usepackage{pgfplots}
+% compat eliminado para evitar conflictos en MiKTeX
 
-\hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    urlcolor=blue,
-    filecolor=magenta,
-    citecolor=red
+\usetikzlibrary{arrows.meta}
+
+\usepackage{fancyhdr}
+
+% hyperref SIEMPRE al final
+\usepackage{hyperref}
+
+% ================== CONFIGURACIÓN ==================
+\sisetup{
+  round-mode=places,
+  round-precision=6
 }
 
-% ------------------ DOCUMENTO ------------------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\headheight}{16pt}
+
+% ================== ENCABEZADOS ==================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% ================== HIPERVÍNCULOS ==================
+\hypersetup{
+    colorlinks=true,
+    linkcolor=MidnightBlue,
+    urlcolor=RoyalBlue,
+    citecolor=BrickRed
+}
+
+% ================== DOCUMENTO ==================
 \begin{document}
 
-% ---------- PORTADA ----------
+% ================== PORTADA ==================
 \newgeometry{top=4cm, bottom=4cm, left=4cm, right=4cm}
 \begin{titlepage}
 \pagecolor{MidnightBlue}
 \color{white}
 \centering
 
-{\Huge \textbf{Papu prooouwo}} \\[2.5cm]
-{\Large Hernandez Pacheco Moises} \\[7cm]
+\vspace*{2cm}
 
-\color{SkyBlue}{\Large Matemáticas Aplicadas \& Computación} \\[1cm]
-\color{white}\textbf{\large Universidad Nacional Autónoma de México} \\[0.5cm]
-\textbf{\large FES Acatlán} \\[1cm]
+{\Huge\bfseries Apuntes de Cálculo Multivariable}\\[2.5cm]
+
+{\Large Moisés Hernández Pacheco}\\[6cm]
+
+{\color{SkyBlue}\Large Matemáticas Aplicadas \& Computación}\\[1cm]
+{\large Universidad Nacional Autónoma de México}\\[0.5cm]
+{\large FES Acatlán}
 
 \vfill
+
 \begin{tikzpicture}[xscale=3]
 \draw[white, thick] (-2,0) -- (2,0);
 \draw[white, thick] (-2,-0.5) -- (2,-0.5);
 \end{tikzpicture}
-\vfill
 
+\vfill
 {\large \today}
+
 \end{titlepage}
 \restoregeometry
 \pagecolor{white}
 \color{black}
 
-% ---------- ÍNDICE ----------
-\hypertarget{toc}{}
+% ================== ÍNDICE ==================
+\hypersetup{linkcolor=black}
 \tableofcontents
 \newpage
 
-% ---------- CONTENIDO ----------
-\part{Título de la Parte}
+% ================== PIES CON ENLACE ==================
+\fancyfoot[R]{\hyperlink{toc}{Ir al índice}}
 
-\chapter{Título del Capítulo}
+% ================== CONTENIDO ==================
+\part{Introducción al Cálculo Multivariable}
 
-\section{Título de la Sección}
+\chapter{Funciones Multivariables}
 
-\subsection{Título de la Subsección}
+\section{Introducción intuitiva}
 
-
-
-
-% ---------- ECUACIÓN BASE ----------
+Recordando las funciones vistas en cursos previos de cálculo, normalmente trabajábamos con funciones de una sola variable, por ejemplo:
 \[
-f(x) =
+f(x) = x^2
 \]
 
-% ---------- BIBLIOGRAFÍA ----------
-\begin{thebibliography}{9}
-\bibitem{ref1}
-Autor. \emph{Título del libro}. Editorial, año.
-\end{thebibliography}
+Aquí, $x$ representa la variable independiente. A este tipo de expresiones las llamamos \textbf{funciones de una variable}.
+
+Intuitivamente, una \textbf{función multivariable} es aquella que depende de más de una variable. Un ejemplo sencillo es:
+\[
+f(x,y) = 3x^2 + y
+\]
+
+También existen funciones cuyo resultado no es un número real, sino un vector. Por ejemplo:
+\[
+f(x,y) =
+\begin{bmatrix}
+3x \\[4pt]
+5y^2
+\end{bmatrix}
+\]
+
+En este caso, la entrada $(x,y)$ puede interpretarse como un \textbf{punto en el plano cartesiano}.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xmin=0, xmax=10,
+    ymin=0, ymax=6,
+    xlabel={$x$},
+    ylabel={$y$},
+    tick style={draw=none},
+    xticklabels=\empty,
+    yticklabels=\empty
+]
+\addplot+[
+    only marks,
+    mark=*,
+    mark size=3
+] coordinates {(5,3)};
+\end{axis}
+\end{tikzpicture}
+\caption{Punto $(x,y)$ en el plano cartesiano}
+\end{figure}
 
 \end{document}
