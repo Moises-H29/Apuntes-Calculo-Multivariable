@@ -155,7 +155,7 @@ Sin embargo, a diferencia de las funciones de una sola variable, las funciones m
 
 
 Aquellas funciones que dependen de dos variables de entrada pueden graficarse en tres dimensiones; no obstante, cuando una función tiene más de dos variables independientes, \textbf{no es posible representarla gráficamente de la forma tradicional}. En estos casos, se emplean distintos métodos y herramientas que permiten obtener una idea de su comportamiento y estructura, los cuales se estudiarán más adelante.
-
+\\
 
 \begin{figure}[H]
 \centering
@@ -186,6 +186,32 @@ Aquellas funciones que dependen de dos variables de entrada pueden graficarse en
 
 
 Como se verá más adelante, las funciones de dos o más variables, cuyas gráficas corresponden a superficies en tres o más dimensiones, pueden visualizarse en dos dimensiones mediante procesos de proyección o “aplanamiento”. Este enfoque permite analizar su comportamiento de manera más accesible, sin perder información relevante, y conduce igualmente a resultados de gran interés.
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    view={0}{90},
+    xlabel={$x$},
+    ylabel={$y$},
+    xticklabels=\empty,
+    yticklabels=\empty,
+    zticklabels=\empty,
+    domain=-2:2,
+    y domain=-2:2,
+    samples=25,
+    colormap/viridis,
+]
+\addplot3[
+    surf,
+]
+{x^2 + y^2};
+\end{axis}
+\end{tikzpicture}
+\caption{Superficie $z = x^2 + y^2$}
+\end{figure}
+
 
 
 
