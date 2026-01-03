@@ -3,6 +3,7 @@
 % ================== PAQUETES ==================
 \usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
 \usepackage{float}
+\usepackage{pgfplots}
 \usepackage{graphicx}
 \usepackage{lettrine}
 \usepackage{ragged2e}
@@ -149,6 +150,45 @@ En este caso, la entrada $(x,y)$ puede interpretarse como un \textbf{punto en el
 }
 \caption{Punto $(x,y)$ en el plano}
 \end{figure}
+
+Sin embargo, a diferencia de las funciones de una sola variable, las funciones multivariables suelen representarse en tres dimensiones o más. 
+
+
+Aquellas funciones que dependen de dos variables de entrada pueden graficarse en tres dimensiones; no obstante, cuando una función tiene más de dos variables independientes, \textbf{no es posible representarla gráficamente de la forma tradicional}. En estos casos, se emplean distintos métodos y herramientas que permiten obtener una idea de su comportamiento y estructura, los cuales se estudiarán más adelante.
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    view={45}{30},
+    xlabel={$x$},
+    ylabel={$y$},
+    zlabel={$z$},
+    tick style={draw=none},
+    xticklabels=\empty,
+    yticklabels=\empty,
+    zticklabels=\empty,
+    domain=-2:2,
+    y domain=-2:2,
+    samples=25,
+    colormap/viridis,
+]
+\addplot3[
+    surf,
+]
+{x^2 + y^2};
+\end{axis}
+\end{tikzpicture}
+\caption{Superficie $z = x^2 + y^2$}
+\end{figure}
+
+
+
+Como se verá más adelante, las funciones de dos o más variables, cuyas gráficas corresponden a superficies en tres o más dimensiones, pueden visualizarse en dos dimensiones mediante procesos de proyección o “aplanamiento”. Este enfoque permite analizar su comportamiento de manera más accesible, sin perder información relevante, y conduce igualmente a resultados de gran interés.
+
+
+
 
 
 
