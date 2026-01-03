@@ -2,7 +2,7 @@
 
 % ================== PAQUETES ==================
 \usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
-
+\usepackage{float}
 \usepackage{graphicx}
 \usepackage{lettrine}
 \usepackage{ragged2e}
@@ -125,8 +125,9 @@ f(x,y) =
 
 En este caso, la entrada $(x,y)$ puede interpretarse como un \textbf{punto en el plano cartesiano}.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
+\resizebox{0.4\textwidth}{!}{
 \begin{tikzpicture}
 \begin{axis}[
     axis lines = middle,
@@ -145,7 +146,10 @@ En este caso, la entrada $(x,y)$ puede interpretarse como un \textbf{punto en el
 ] coordinates {(5,3)};
 \end{axis}
 \end{tikzpicture}
-\caption{Punto $(x,y)$ en el plano cartesiano}
+}
+\caption{Punto $(x,y)$ en el plano}
 \end{figure}
+
+
 
 \end{document}
